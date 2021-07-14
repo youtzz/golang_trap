@@ -49,11 +49,23 @@
    ```
    
    
+
+5. 以下代码在 Go 中是合法的
+   
+   ```go
+   type Stu struct {}
+   func (*Stu) Print() {
+       fmt.Println("Hello, world")
+   }
+   
+   func main() {
+       var s *Stu  // s == nil
+       s.Print()
+   }
+   ```
    
    
    
    
    
    
-   
-    
