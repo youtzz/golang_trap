@@ -33,12 +33,27 @@
 
    chan 一旦被写入数据后，当前 goruntine 就会被阻塞，知道有人接收才可以（即 " <- ch"），如果没人接收，它就会一直阻塞着。而如果 chan 带一个缓冲，就会把数据放到缓冲区中，直到缓冲区满了，才会阻塞
 
-5. 
-
    
 
-   
+5. interface只有在类型和值都为nil时才等于nil
 
+   ```go
+   var i interface{}
+   var s *string
    
-
+   fmt.Println(s, s == nil) // <nil>, true
+   
+   fmt.Println(i, i == nil)  // <nil>, true
+   i = s
+   fmt.Println(i, i == nil)  // <nil>, false
+   ```
+   
+   
+   
+   
+   
+   
+   
+   
+   
     
