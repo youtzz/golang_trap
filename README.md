@@ -1,10 +1,10 @@
 ## Golang 踩坑记
 
-1. slice作为参数传递到函数，进行了append操作时，如果cap足够，不过产生新的slice
+1. 对 slice 进行 append 操作时，如果 cap 足够，不产生新的 slice
 
    
 
-2. map不使用make初始化时，是一个空指针，对空指针操作会直接导致panic
+2. map 不使用 make 初始化时，是一个空指针，对空指针操作会直接导致 panic
 
    ``` golang
    var m1 map[string]int   //  == nil
@@ -29,13 +29,13 @@
 
    
 
-4. make(chan int) 和 make(chan int, 1)是不一样的
+4. make(chan int)  和  make(chan int, 1) 是不一样的
 
-   chan 一旦被写入数据后，当前 goruntine 就会被阻塞，知道有人接收才可以（即 " <- ch"），如果没人接收，它就会一直阻塞着。而如果 chan 带一个缓冲，就会把数据放到缓冲区中，直到缓冲区满了，才会阻塞
+   chan  一旦被写入数据后，当前  goruntine  就会被阻塞，直到有人接收才可以（即 " <- ch"），如果没人接收，它就会一直阻塞着。而如果  chan  带一个缓冲，就会把数据放到缓冲区中，直到缓冲区满了，才会阻塞
 
    
 
-5. interface只有在类型和值都为nil时才等于nil
+5. interface 只有在类型和值都为 nil 时才等于 nil
 
    ```go
    var i interface{}
